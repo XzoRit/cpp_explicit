@@ -26,25 +26,25 @@ test_case("tagged_bool")
 
     subcase("readonly, shared")
     {
-        make_file(readonly(true), shared(true));
+        make_file(readonly{true}, shared{true});
 
         check_eq(param_spy, string{"rs"});
     }
     subcase("!readonly, shared")
     {
-        make_file(readonly(false), shared(true));
+        make_file(readonly{false}, shared{true});
 
         check_eq(param_spy, string{"rws"});
     }
     subcase("readonly, !shared")
     {
-        make_file(readonly(true), shared(false));
+        make_file(readonly{true}, shared{false});
 
         check_eq(param_spy, string{"rns"});
     }
     subcase("!readonly, !shared")
     {
-        make_file(readonly(false), shared(false));
+        make_file(readonly{false}, shared{false});
 
         check_eq(param_spy, string{"rwns"});
     }
