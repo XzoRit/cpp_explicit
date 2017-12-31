@@ -14,7 +14,9 @@ target_compile_features(explicit_playground
   )
 
 target_include_directories(explicit_playground
-  PRIVATE ${cpp_explicit_SOURCE_DIR}/explicit/include
+  PRIVATE
+    ${explicit_playground_SOURCE_DIR}
+    ${cpp_explicit_SOURCE_DIR}/explicit/include
   )
 
 target_link_libraries(explicit_playground doctest)
