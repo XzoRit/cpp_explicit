@@ -4,6 +4,7 @@ project(explicit_playground)
 
 add_executable(explicit_playground
   main_test.cpp
+  not_null.cpp
   tagged_bool.cpp
   )
 
