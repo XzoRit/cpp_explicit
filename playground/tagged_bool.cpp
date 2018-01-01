@@ -2,10 +2,12 @@
 #include "xplicit_proxy.hpp"
 #include <string>
 
-using namespace std;
-
 using readonly = tagged_bool<struct readonly_tag>;
 using shared   = tagged_bool<struct shared_tag>;
+
+namespace
+{
+using namespace std;
 
 string param_spy{};
 
@@ -16,6 +18,7 @@ void make_file(readonly _readonly, shared _shared)
 
     if(_shared) param_spy += "s";
     else param_spy += "ns";
+}
 }
 
 suite_begin("tagged_bool");
