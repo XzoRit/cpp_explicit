@@ -3,5 +3,6 @@
 
 namespace xplicit = ak_toolkit::xplicit;
 
+using xplicit::as_not_null;
 using xplicit::not_null;
 using xplicit::tagged_bool;

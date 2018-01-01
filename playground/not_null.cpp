@@ -1,24 +1,22 @@
 #include "doctest_proxy.hpp"
 #include "xplicit_proxy.hpp"
-#include <string>
 
 namespace
 {
-using namespace std;
+    int param_spy{};
 
-string param_spy{};
-
-void make_file()
-{
-    param_spy = "1";
-}
+    void need_raw_pointer(not_null<int*> a)
+    {
+        param_spy = *a;
+    }
 }
 
 suite_begin("not_null");
 
-test_case("1")
+test_case("raw pointer")
 {
-    check_eq(1, 2);
+    need_raw_pointer(as_not_null(new int{1}));
+    check_eq(param_spy, 1);
 }
 
 test_case("2")
