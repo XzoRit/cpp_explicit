@@ -1,13 +1,11 @@
 #include "doctest_proxy.hpp"
-#include <ak_toolkit/tagged_bool.hpp>
+#include "xplicit_proxy.hpp"
 #include <string>
-
-namespace xplicit = ak_toolkit::xplicit;
 
 using namespace std;
 
-using readonly = xplicit::tagged_bool<struct readonly_tag>;
-using shared   = xplicit::tagged_bool<struct shared_tag>;
+using readonly = tagged_bool<struct readonly_tag>;
+using shared   = tagged_bool<struct shared_tag>;
 
 string param_spy{};
 
