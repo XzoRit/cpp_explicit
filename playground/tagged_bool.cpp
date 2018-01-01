@@ -20,7 +20,17 @@ void make_file(readonly _readonly, shared _shared)
     else param_spy += "ns";
 }
 
-test_case("tagged_bool")
+suite_begin("tagged_bool");
+
+test_case("ctor")
+{
+    const readonly a{true};
+    const shared b{a};
+
+    check_eq(b, shared{true});
+}
+
+test_case("usage")
 {
     param_spy.clear();
 
@@ -49,3 +59,5 @@ test_case("tagged_bool")
         check_eq(param_spy, string{"rwns"});
     }
 }
+
+suite_end();
