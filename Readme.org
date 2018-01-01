@@ -1,0 +1,3 @@
+* cpp_explicit
+
+[[https://travis-ci.org/XzoRit/cpp_explicit][Build Status]]
