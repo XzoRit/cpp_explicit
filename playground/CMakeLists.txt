@@ -10,8 +10,7 @@ add_executable(explicit_playground
 
 target_compile_features(explicit_playground
   PRIVATE
-    cxx_alias_templates
-    cxx_generalized_initializers
+    cxx_std_14
   )
 
 target_include_directories(explicit_playground
