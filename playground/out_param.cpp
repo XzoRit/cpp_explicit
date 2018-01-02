@@ -1,22 +1,24 @@
 #include "doctest_proxy.hpp"
 #include "xplicit_proxy.hpp"
+#include <vector>
 
 namespace
 {
-    int param_spy{};
-
-    void need_pointer()
+    template<class A>
+    void assign(const A& from, out_param<A&> to)
     {
-        param_spy = 2;
+        to.get() = from;
     }
-
 }
 
 suite_begin("out_param");
 
-test_case("raw pointer")
+test_case("assign")
 {
-    check_eq(param_spy, 1);
+    std::vector<int> a{1,3,5,7,9};
+    assign({2,4,6,8}, out(a));
+
+    check_eq(a, std::vector<int>{2,4,6,8});
 }
 
 suite_end();
